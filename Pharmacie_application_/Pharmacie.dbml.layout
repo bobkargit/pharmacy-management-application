@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Pharmacie">
+  <DataContextMoniker Name="/PharmacieDataContext" />
+  <nestedChildShapes>
+    <classShape Id="2e0bbe62-7019-4d69-9a91-948586b05d40" absoluteBounds="0.625, 0.875, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/PharmacieDataContext/login" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5e8dc7d8-8736-46bd-bd6a-7164b9523606" absoluteBounds="0.64, 1.335, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="113f2af9-0fba-499c-a9c2-d8e06b6b1b17" absoluteBounds="4.5, 0.5, 2, 3.1170068359375">
+      <DataClassMoniker Name="/PharmacieDataContext/medicament" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b7fc3f74-d641-4c3a-8ee6-92a721b8c196" absoluteBounds="4.515, 0.96, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6db38dca-a9ff-4e6c-b550-22ff5dad3d4d" absoluteBounds="0.5, 4.125, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/PharmacieDataContext/fournisseur" />
+      <nestedChildShapes>
+        <elementListCompartment Id="03fb8cc1-2c8d-4f62-83c5-e2eee8d08b6c" absoluteBounds="0.515, 4.585, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9a965d6c-9833-4486-809f-0de4bc57e9b8" absoluteBounds="5.5, 5, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/PharmacieDataContext/commande" />
+      <nestedChildShapes>
+        <elementListCompartment Id="356b0a09-4d8f-42e5-87ac-e57ccf46c977" absoluteBounds="5.515, 5.46, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.5 : 5.73640055338542); (5.5 : 5.73640055338542)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/PharmacieDataContext/fournisseur/fournisseur_commande" />
+      <nodes>
+        <classShapeMoniker Id="6db38dca-a9ff-4e6c-b550-22ff5dad3d4d" />
+        <classShapeMoniker Id="9a965d6c-9833-4486-809f-0de4bc57e9b8" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6 : 3.6170068359375); (6 : 5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/PharmacieDataContext/medicament/medicament_commande" />
+      <nodes>
+        <classShapeMoniker Id="113f2af9-0fba-499c-a9c2-d8e06b6b1b17" />
+        <classShapeMoniker Id="9a965d6c-9833-4486-809f-0de4bc57e9b8" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="6cbad10d-21f6-4118-bcdb-8c4062db5792" absoluteBounds="7.875, 2.25, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/PharmacieDataContext/Vente" />
+      <nestedChildShapes>
+        <elementListCompartment Id="88966d24-3dcc-4046-9c86-c501f674cb29" absoluteBounds="7.89, 2.71, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(6.5 : 2.93350341796875); (7.875 : 2.93350341796875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/PharmacieDataContext/medicament/medicament_Vente" />
+      <nodes>
+        <classShapeMoniker Id="113f2af9-0fba-499c-a9c2-d8e06b6b1b17" />
+        <classShapeMoniker Id="6cbad10d-21f6-4118-bcdb-8c4062db5792" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

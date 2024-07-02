@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="pharmacie" Class="PharmacieDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-MOF20A9\SQLEXPRESS;Initial Catalog=pharmacie;Integrated Security=True;Encrypt=False" SettingsObjectName="Pharmacie_application_.Properties.Settings" SettingsPropertyName="pharmacieConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.login" Member="logins">
+    <Type Name="login">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="password" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="type" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="firstName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="lastName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CIN" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Image" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.medicament" Member="medicaments">
+    <Type Name="medicament">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nom" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Forme" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Fabricant" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Dosage" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Quantité" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Prix" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="DateExpiration" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Catégorie" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Image" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="fournisseur" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="medicament_commande" Member="commandes" ThisKey="Id" OtherKey="id_medicament" Type="commande" />
+      <Association Name="medicament_Vente" Member="Ventes" ThisKey="Id" OtherKey="ID_medicament" Type="Vente" />
+    </Type>
+  </Table>
+  <Table Name="dbo.fournisseur" Member="fournisseurs">
+    <Type Name="fournisseur">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nom" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="ville" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="adresse" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="tel" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="fax" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="nom_pharmacien_responsable" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Association Name="fournisseur_commande" Member="commandes" ThisKey="id" OtherKey="id_fournisseur" Type="commande" />
+    </Type>
+  </Table>
+  <Table Name="dbo.commande" Member="commandes">
+    <Type Name="commande">
+      <Column Name="id_commande" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_fournisseur" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_medicament" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="date_commande" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="date_livraison" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="statut" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="quantite" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="montant_total" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Association Name="fournisseur_commande" Member="fournisseur" ThisKey="id_fournisseur" OtherKey="id" Type="fournisseur" IsForeignKey="true" />
+      <Association Name="medicament_commande" Member="medicament" ThisKey="id_medicament" OtherKey="Id" Type="medicament" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Vente" Member="Ventes">
+    <Type Name="Vente">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ID_medicament" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NombreVente" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DateVente" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Prix_total" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Association Name="medicament_Vente" Member="medicament" ThisKey="ID_medicament" OtherKey="Id" Type="medicament" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
