@@ -25,7 +25,7 @@ namespace Pharmacie_application_
             CreateRoundedPanel(panel3, 20);
             CreateRoundedPanel(panel4, 20);
            sommeMedicament();
-           sommeVentes();
+           //sommeVentes();
 
             chart.Size = new System.Drawing.Size(850, 700);
             chart.ChartAreas.Add(new ChartArea());
@@ -86,7 +86,7 @@ namespace Pharmacie_application_
             int sommeQuantites = context.medicaments.Sum(m => m.Quantité ?? 0);
             medi.Text = sommeQuantites.ToString();
         }
-       public void sommeVentes()
+      /* public void sommeVentes()
         {
             int sommeVentesAujourdhui = context.Ventes
             .Where(vente => vente.DateVente == DateTime.Today && vente.NombreVente != null)
@@ -108,7 +108,7 @@ namespace Pharmacie_application_
             income.Text = sommePrix.ToString("N2") + " DH";
             notif.Text = nombreMedicamentsProchesExpiration.ToString();
 
-       }
+       }*/
         private void CreateRoundedPanel(System.Windows.Forms.Panel panel, int radius)
         {
             // Créer un chemin pour les coins arrondis
