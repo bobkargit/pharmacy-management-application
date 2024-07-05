@@ -1,6 +1,6 @@
-# Gestion-de-pharmacie
+# pharmacy-management-application
 
-Gestion-de-pharmacie is a comprehensive application developed using C# .NET in Visual Studio for managing pharmacy operations. The application leverages SQL Server Management Studio (SSMS) for database management.
+pharmacy management application is a comprehensive application developed using C# .NET in Visual Studio for managing pharmacy operations. The application leverages SQL Server Management Studio (SSMS) for database management.
 
 ## Features
 
